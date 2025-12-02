@@ -1,0 +1,309 @@
+{
+  "info": {
+    "_postman_id": "jurnal-modul-5-api",
+    "name": "JURNAL_MODUL_5_API",
+    "description": "Collection untuk testing API JURNAL MODUL 5",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "🔐 Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"Andi Wijaya\",\n    \"email\": \"andi@example.com\",\n    \"password\": \"password123\",\n    \"password_confirmation\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/register",
+              "host": ["{{base_url}}"],
+              "path": ["register"]
+            }
+          }
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"andi@example.com\",\n    \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": ["{{base_url}}"],
+              "path": ["login"]
+            }
+          }
+        },
+        {
+          "name": "Logout User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/logout",
+              "host": ["{{base_url}}"],
+              "path": ["logout"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "👥 Mahasiswa",
+      "item": [
+        {
+          "name": "Create Mahasiswa",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nim\": \"2301081001\",\n    \"nama\": \"Budi Santoso\",\n    \"alamat\": \"Jl. Merdeka No. 123, Jakarta\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/mahasiswa",
+              "host": ["{{base_url}}"],
+              "path": ["mahasiswa"]
+            }
+          }
+        },
+        {
+          "name": "Get All Mahasiswa",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mahasiswa",
+              "host": ["{{base_url}}"],
+              "path": ["mahasiswa"]
+            }
+          }
+        },
+        {
+          "name": "Get Mahasiswa by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mahasiswa/1",
+              "host": ["{{base_url}}"],
+              "path": ["mahasiswa", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Mahasiswa",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nama\": \"Budi Santoso Updated\",\n    \"alamat\": \"Jl. Ahmad Yani No. 456, Bandung\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/mahasiswa/1",
+              "host": ["{{base_url}}"],
+              "path": ["mahasiswa", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Mahasiswa",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mahasiswa/1",
+              "host": ["{{base_url}}"],
+              "path": ["mahasiswa", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "📚 Matakuliah",
+      "item": [
+        {
+          "name": "Create Matakuliah",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"kode\": \"MK001\",\n    \"nama\": \"Pemrograman Web\",\n    \"sks\": 3\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/matakuliah",
+              "host": ["{{base_url}}"],
+              "path": ["matakuliah"]
+            }
+          }
+        },
+        {
+          "name": "Get All Matakuliah",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/matakuliah",
+              "host": ["{{base_url}}"],
+              "path": ["matakuliah"]
+            }
+          }
+        },
+        {
+          "name": "Get Matakuliah by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/matakuliah/1",
+              "host": ["{{base_url}}"],
+              "path": ["matakuliah", "1"]
+            }
+          }
+        },
+        {
+          "name": "Update Matakuliah",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nama\": \"Pemrograman Web Advanced\",\n    \"sks\": 4\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/matakuliah/1",
+              "host": ["{{base_url}}"],
+              "path": ["matakuliah", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Matakuliah",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/matakuliah/1",
+              "host": ["{{base_url}}"],
+              "path": ["matakuliah", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000/api",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
